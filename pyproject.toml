@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vkitti_convert_gaussian"
+version = "0.0.2"
+dependencies = [
+    "numpy<2.0.0",
+    "open3d",
+    "opencv-python",
+    "scipy",
+    "plyfile",
+    "rich",
+    "tyro",
+    "pillow",
+]
+
+[project.scripts]
+extract_car = "vkitti_convert_gaussian.gaussian_converter:extract_car"
+extract_background = "vkitti_convert_gaussian.gaussian_converter:extract_background"
+convert_all = "vkitti_convert_gaussian.gaussian_converter:convert_all_vkitti_to_gaussian"
+convert_class = "vkitti_convert_gaussian.gaussian_converter:convert_one_class_to_gaussian"
+convert_all_classes = "vkitti_convert_gaussian.gaussian_converter:convert_all_classes_to_gaussian"
+v2g = "vkitti_convert_gaussian:v2g_entry_point"
+
+[project.entry-points."vkitti_convert_gaussian.console_scripts"]
+extract_car = "vkitti_convert_gaussian.gaussian_converter:_extract_car"
+extract_background = "vkitti_convert_gaussian.gaussian_converter:_extract_background"
+convert_all = "vkitti_convert_gaussian.gaussian_converter:_convert_all_vkitti_to_gaussian"
+convert_class = "vkitti_convert_gaussian.gaussian_converter:_convert_one_class_to_gaussian"
+convert_all_classes = "vkitti_convert_gaussian.gaussian_converter:_convert_all_classes_to_gaussian"
