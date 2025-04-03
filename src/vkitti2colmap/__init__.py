@@ -1,0 +1,1 @@
+print("vkitti2colmap.__init__.py executed")
